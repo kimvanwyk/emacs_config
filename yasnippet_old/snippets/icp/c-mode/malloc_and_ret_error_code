@@ -1,0 +1,6 @@
+#key: malloc_and_ret_error_code
+# --
+${1:strRetVal} = malloc(aReturnStrings[$2][1]);
+$1 = strcpy(aReturnStrings[$2][0]);
+
+

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: kppe-decision
+# key: dec
+# binding: C-c C-k d
+# type: snippet
+# --
+<<decision:$1>>$0

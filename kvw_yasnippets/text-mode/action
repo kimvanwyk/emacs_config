@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: kppe-action
+# key: act
+# binding: C-c C-k a
+# type: snippet
+# --
+<<action:$1>>$0

@@ -1,0 +1,1 @@
+http://wwwuser.gwdg.de/~jkremer/pandoc-mode.el

@@ -1,0 +1,12 @@
+(defun find_delphi_project()
+(interactive)
+(setq dir (directory-files (file-name-directory (buffer-file-name)) t ".*\\.dpr" nil))
+(if (equal 1 (length dir))
+(car dir)
+nil)
+)
+
+(defun test_delphi_build()
+(interactive)
+(message (find_delphi_project))
+)

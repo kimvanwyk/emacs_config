@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: kppe-name
+# key: kn
+# binding: C-c C-k n
+# type: command
+# --
+(if (region-active-p)
+    (yas-expand-snippet "<<n:`yas-selected-text`>>$0")
+  (yas-expand-snippet "<<n:$1>>$0"))
