@@ -6,7 +6,6 @@
 
 (require-if-exists 'package)
 ;; Package management with Marmalade
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 ;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 ;; (add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
@@ -153,15 +152,6 @@
   (error (substitute-command-keys "To exit emacs: \\[kill-emacs]")))
   
 (global-set-key "\C-x\C-c" 'dont-kill-emacs)
-
-(defun set-font ()
-(interactive)
-;; Set font for X or win32 systems, leaving unchanged otherwise
-(if (equal window-system 'x)
-    (set-frame-font "-adobe-courier-medium-r-normal--12-120-75-75-m-70-iso8859-1" t))
-(if (equal window-system 'w32)
-    (set-frame-font "-outline-Lucida Console-normal-r-normal-normal-13-97-96-96-c-*-iso8859-1" t)))
-(add-hook 'term-setup-hook 'set-font)
 
 ;; uniquify buffer names
 (if (require-if-exists 'uniquify) 
