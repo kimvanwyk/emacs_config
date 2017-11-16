@@ -9,7 +9,7 @@
 (find-file-noselect "~/emacs/lisp/addons/dot_emacs.el")
 
 ;; Customise and private data
-(require 'de_cust_priv)
+;; (require 'de_cust_priv)
 
 ;; Windows only - detect with window-system variable
 (require 'de_windows)
@@ -33,7 +33,7 @@
 ;; Network - jabber, twitter etc
 (require 'de_network)
 ;; VCS related changes
-;; (require 'de_vcs)
+(require 'de_vcs)
 ;; Org mode
 (require 'de_org)
 ;; Disable music stuff as it takes a while to load and is currently unused.

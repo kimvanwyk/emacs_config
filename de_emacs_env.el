@@ -7,7 +7,13 @@
 (require-if-exists 'package)
 ;; Package management with Marmalade
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; (add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize)
 
 ;; stop confirmation required for opening largish files.
 (setq large-file-warning-threshold nil)
@@ -226,7 +232,6 @@ strmatch)
         ))
 
 
-(set-font)
 (put 'set-goal-column 'disabled nil)
 
 ;; Ignore uninteresting files in tab completion when finding files to visit in buffers.
