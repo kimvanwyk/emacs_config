@@ -319,6 +319,22 @@ FILL and RAGGED have the effect of prefix and - arguments respectively."
 (fset 'kvw-underline-line
    [?\C-a ?\C-  ?\C-e ?\M-w return ?\C-y ?\C-  ?\C-a ?\M-x ?r ?e ?p ?l ?a ?c ?e ?- ?r ?e ?g ?e ?x ?p return ?. return ?- return return ?\C-x ?\C-s])
 
+;; https://www.reddit.com/r/emacs/comments/1nihkt/how_to_display_full_charset_name_in_modeline_eg/
+(defvar kvw-mode-line-coding-format
+      '(:eval
+        (let* ((code (symbol-name buffer-file-coding-system))
+               (eol-type (coding-system-eol-type buffer-file-coding-system))
+               (eol (if (eq 0 eol-type) "UNIX"
+                      (if (eq 1 eol-type) "DOS"
+                        (if (eq 2 eol-type) "MAC"
+                          "???")))))
+          (concat code " " eol " "))))
+(put 'kvw-mode-line-coding-format 'risky-local-variable t)
+(setq-default mode-line-format (substitute
+                                'kvw-mode-line-coding-format
+                                'mode-line-mule-info
+                                mode-line-format))
+
 (require-if-exists 'table)
 (provide 'de_emacs_env)
 
